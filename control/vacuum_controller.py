@@ -1,16 +1,40 @@
 import tinytuya
 import json
 import time
+import os
 
 class EurekaLVACVoiceProController:
-    def __init__(self):
-        # TODO: Replace with your device credentials
-        # Get these from: https://iot.tuya.com or see docs/SETUP_GUIDE.md
+    def __init__(self, config_path=None):
+        """
+        Initialize the controller with configuration from file.
+
+        Args:
+            config_path: Path to config file. Defaults to config.json in project root.
+        """
+        if config_path is None:
+            # Try to find config.json in project root (parent of control directory)
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(script_dir)
+            config_path = os.path.join(project_root, 'config.json')
+
+        # Load configuration
+        if not os.path.exists(config_path):
+            raise FileNotFoundError(
+                f"Configuration file not found at: {config_path}\n"
+                f"Please create config.json from config.example.json"
+            )
+
+        with open(config_path, 'r') as f:
+            config = json.load(f)
+
+        device_config = config.get('device', {})
+
+        # Initialize device
         self.vacuum = tinytuya.Device(
-            dev_id="YOUR_DEVICE_ID_HERE",           # e.g., "d7921b8722a14bbf3da8di"
-            address="YOUR_VACUUM_IP_HERE",          # e.g., "192.168.1.100"
-            local_key="YOUR_LOCAL_KEY_HERE",        # e.g., "Vwel'|(#;Nkbc{^o"
-            version=3.3
+            dev_id=device_config.get('dev_id'),
+            address=device_config.get('address'),
+            local_key=device_config.get('local_key'),
+            version=device_config.get('version', 3.3)
         )
         self.vacuum.set_socketPersistent(True)
     

@@ -1,0 +1,12 @@
+{
+  "device": {
+    "dev_id": "YOUR_DEVICE_ID_HERE",
+    "address": "YOUR_VACUUM_IP_HERE",
+    "local_key": "YOUR_LOCAL_KEY_HERE",
+    "version": 3.3
+  },
+  "network": {
+    "timeout": 5,
+    "retry_attempts": 3
+  }
+}
