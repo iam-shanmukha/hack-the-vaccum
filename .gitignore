@@ -1,0 +1,151 @@
+# ============================================
+# SECURITY - Sensitive Data
+# ============================================
+
+# API Keys and Secrets
+data/tinytuya.json
+*.key
+*.secret
+credentials.txt
+secrets.txt
+config.json
+.env
+.env.local
+
+# Device-specific credentials (contains local_key and device_id)
+**/tinytuya.json
+
+# Network captures (may contain MAC addresses, keys, traffic)
+*.pcap
+*.pcapng
+*.cap
+
+# ============================================
+# Raw/Archive Files
+# ============================================
+raw/
+raw.zip
+*.zip
+*.tar.gz
+*.tar
+
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# ============================================
+# Virtual Environments
+# ============================================
+venv/
+ENV/
+env/
+.venv
+env.bak/
+venv.bak/
+
+# ============================================
+# IDEs and Editors
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ============================================
+# Generated/Output Files
+# ============================================
+*.bin
+*.log
+*.tmp
+
+# Output images (except sample data)
+map_*.png
+vacuum_*.png
+room_*.png
+
+# Generated map data
+map_dps_*.bin
+map_dps_*.txt
+current_map.txt
+*_capture.pcap
+
+# Decompressed data
+*_decompressed.bin
+
+# ============================================
+# Keep Sample/Reference Data
+# ============================================
+!data/map_raw.bin
+!data/*.png
+!data/*.json
+!data/*.pcap
+
+# But NEVER include credentials
+data/tinytuya.json
+
+# ============================================
+# Git
+# ============================================
+*.orig

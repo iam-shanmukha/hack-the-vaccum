@@ -1,0 +1,16 @@
+# Eureka Forbes Voci Pro Vacuum Controller - Dependencies
+
+# Core Tuya communication library
+tinytuya>=1.13.0
+
+# Data visualization and plotting
+matplotlib>=3.5.0
+
+# Numerical computing
+numpy>=1.21.0
+
+# Optional: For advanced network analysis
+# scapy>=2.5.0
+
+# Optional: For web-based dashboards
+# flask>=2.3.0
