@@ -119,6 +119,14 @@ class EurekaLVACVoiceProController:
         print("\n" + "="*50)
         print("VACUUM STATUS")
         print("="*50)
+
+        # Check if we got a valid parsed status or raw response
+        if not isinstance(status, dict) or 'power' not in status:
+            print("Unable to retrieve status. Raw response:")
+            print(json.dumps(status, indent=2))
+            print("="*50 + "\n")
+            return
+
         print(f"Power:          {status['power']}")
         print(f"Status:         {status['status']}")
         print(f"Command:        {status['command']}")
